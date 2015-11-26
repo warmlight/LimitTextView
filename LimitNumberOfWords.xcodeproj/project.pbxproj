@@ -15,6 +15,8 @@
 		CDFC52841C04401E006F1383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDFC52821C04401E006F1383 /* LaunchScreen.storyboard */; };
 		CDFC528F1C04401E006F1383 /* LimitNumberOfWordsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFC528E1C04401E006F1383 /* LimitNumberOfWordsTests.m */; };
 		CDFC529A1C04401E006F1383 /* LimitNumberOfWordsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFC52991C04401E006F1383 /* LimitNumberOfWordsUITests.m */; };
+		CDFC52A91C044074006F1383 /* LimitTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFC52A81C044074006F1383 /* LimitTextView.m */; settings = {ASSET_TAGS = (); }; };
+		CDFC52AF1C046A1D006F1383 /* NSString+UnicodeLengthOfString.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFC52AE1C046A1D006F1383 /* NSString+UnicodeLengthOfString.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		CDFC52951C04401E006F1383 /* LimitNumberOfWordsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LimitNumberOfWordsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDFC52991C04401E006F1383 /* LimitNumberOfWordsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LimitNumberOfWordsUITests.m; sourceTree = "<group>"; };
 		CDFC529B1C04401E006F1383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CDFC52A71C044074006F1383 /* LimitTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LimitTextView.h; path = ../LimitTextView.h; sourceTree = "<group>"; };
+		CDFC52A81C044074006F1383 /* LimitTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LimitTextView.m; path = ../LimitTextView.m; sourceTree = "<group>"; };
+		CDFC52AD1C046A1D006F1383 /* NSString+UnicodeLengthOfString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UnicodeLengthOfString.h"; sourceTree = "<group>"; };
+		CDFC52AE1C046A1D006F1383 /* NSString+UnicodeLengthOfString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UnicodeLengthOfString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,10 @@
 		CDFC52731C04401E006F1383 /* LimitNumberOfWords */ = {
 			isa = PBXGroup;
 			children = (
+				CDFC52AD1C046A1D006F1383 /* NSString+UnicodeLengthOfString.h */,
+				CDFC52AE1C046A1D006F1383 /* NSString+UnicodeLengthOfString.m */,
+				CDFC52A71C044074006F1383 /* LimitTextView.h */,
+				CDFC52A81C044074006F1383 /* LimitTextView.m */,
 				CDFC52771C04401E006F1383 /* AppDelegate.h */,
 				CDFC52781C04401E006F1383 /* AppDelegate.m */,
 				CDFC527A1C04401E006F1383 /* ViewController.h */,
@@ -270,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDFC52AF1C046A1D006F1383 /* NSString+UnicodeLengthOfString.m in Sources */,
 				CDFC527C1C04401E006F1383 /* ViewController.m in Sources */,
+				CDFC52A91C044074006F1383 /* LimitTextView.m in Sources */,
 				CDFC52791C04401E006F1383 /* AppDelegate.m in Sources */,
 				CDFC52761C04401E006F1383 /* main.m in Sources */,
 			);
@@ -344,7 +356,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yiban app (9QB93R83T9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yiban app (9QB93R83T9)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -366,6 +379,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "5ff6bf58-e2a6-48e6-9c85-823262255e87";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -387,7 +401,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yiban app (9QB93R83T9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yiban app (9QB93R83T9)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -402,6 +417,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "5ff6bf58-e2a6-48e6-9c85-823262255e87";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -496,6 +512,7 @@
 				CDFC52A01C04401E006F1383 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDFC52A11C04401E006F1383 /* Build configuration list for PBXNativeTarget "LimitNumberOfWordsTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +521,7 @@
 				CDFC52A31C04401E006F1383 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CDFC52A41C04401E006F1383 /* Build configuration list for PBXNativeTarget "LimitNumberOfWordsUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +530,7 @@
 				CDFC52A61C04401E006F1383 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
