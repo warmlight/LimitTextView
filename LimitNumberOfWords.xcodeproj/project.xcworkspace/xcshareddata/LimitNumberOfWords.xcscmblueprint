@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BF29282E5C31E0C67C1E326DABAC5C686108012B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "BF29282E5C31E0C67C1E326DABAC5C686108012B" : 0,
+    "6F4E3EA1DF85AA3D53BF1D1420E6A383095B43F9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "216E99E0-8533-4866-A3B3-080755BCEDC5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "BF29282E5C31E0C67C1E326DABAC5C686108012B" : "LimitNumberOfWords\/",
+    "6F4E3EA1DF85AA3D53BF1D1420E6A383095B43F9" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "LimitNumberOfWords",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "LimitNumberOfWords.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:warmlight\/UIPopoverPresentationController_DEMO.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6F4E3EA1DF85AA3D53BF1D1420E6A383095B43F9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:warmlight\/LimitTextView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BF29282E5C31E0C67C1E326DABAC5C686108012B"
+    }
+  ]
+}

@@ -17,12 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    LimitTextView *tx = [[LimitTextView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 50)];
+    LimitTextView *tx = [[LimitTextView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 80)];
     tx.backgroundColor = [UIColor lightGrayColor];
     tx.limteNum = 5;
     tx.autoHeight = YES;
-    tx.placeHoldFont = [UIFont systemFontOfSize:12];
-    tx.placeHold = @"imagePickerController:(YiBanImagePickerController *)imagePickerController didFinishPickingMediaWithInfo:(id)info";
+    tx.placeHoldFont = [UIFont systemFontOfSize:13];
+    tx.placeHold = @"我是placeholder,我的行高可以改变！！！！";
     tx.limitdelegate = self;
     [self.view addSubview:tx];
     // Do any additional setup after loading the view, typically from a nib.
