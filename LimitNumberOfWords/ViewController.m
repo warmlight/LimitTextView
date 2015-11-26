@@ -28,6 +28,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+//如果超出了会走这个delegate，可以把提示逻辑写到这个里面
 - (void)beyondLimitNum {
     NSLog(@"超过了限制字数( ⊙ o ⊙ )啊！");
 }
