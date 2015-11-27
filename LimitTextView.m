@@ -58,9 +58,7 @@
 
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range
- replacementText:(NSString *)text
-{
-
+ replacementText:(NSString *)text{
     return YES;
 }
 
@@ -144,7 +142,6 @@
         }
     }
 }
-
 
 //滚动到一个特定区域（这里是保证固定高度时输入能一直可见，在最后一行）
 - (void)textViewIndicateMoveToCurrentPosition {
