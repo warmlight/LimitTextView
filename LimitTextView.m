@@ -11,7 +11,8 @@
 
 @interface LimitTextView()
 @property (strong, nonatomic) UILabel *placeHoldLabel;
-@property (strong, nonatomic) NSString *limitString;
+@property (strong, nonatomic) NSString *limitString;   //用来存储当前输入的第一次超过时从中截取的符合字数限制的string
+
 @end
 
 @implementation LimitTextView
@@ -79,10 +80,15 @@
     UITextRange *selectedRange = [textView markedTextRange];
     //获取高亮部分
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
-    
     //如果在变化中是高亮部分在变，就不计算字符
     if (selectedRange && pos) {
         return;
+    }
+    
+    //字数超过后通过退格键把字数删除到符合限制的范围内，会调用这个函数
+    //将limitString赋值为@“”，方便下一次循环判断
+    if ([textView.text charNumber] <= self.limitNum * 2 && ![self.limitString isEqualToString:@""]){
+        self.limitString = @"";
     }
     
     //超过规定的字数时
@@ -97,28 +103,33 @@
             }
             [textView setText:str];
         }else{
-            //如果是中英文混合输入，那么就不能单纯用substringToIndex截取，因为它一视同仁
-            //不管中英文都当做一个单位来截断
-            __block NSString *str = [[NSString alloc] init];
-            __block NSInteger num = 0;
-            __weak LimitTextView * bSelf = self;
-            //逐字遍历，不管是中文英文，中文就按照字，英文就是按字母
-            [textView.text enumerateSubstringsInRange:NSMakeRange(0, [textView.text length])
-                                              options:NSStringEnumerationByComposedCharacterSequences
-                                           usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
-                                               NSInteger subLen = [substring charNumber];
-                                               num += subLen;
-                                               NSLog(@"%d", num);
-                                               if (num <= self.limitNum * 2) {
-                                                   str  = [str stringByAppendingString:substring];
-                                               }else{
-                                                   if ([bSelf.limitdelegate respondsToSelector:@selector(beyondLimitNum)]) {
-                                                       [bSelf.limitdelegate beyondLimitNum];
+            //当前输入的第一次超过才会进行循环截取，如果继续输入直接赋值为截取的符合字数限制的字符串，避免再次循环
+            if ([self.limitString isEqualToString:@""]) {
+                //如果是中英文混合输入，那么就不能单纯用substringToIndex截取，因为它一视同仁
+                //不管中英文都当做一个单位来截断
+                __block NSString *str = [[NSString alloc] init];
+                __block NSInteger num = 0;
+                __weak LimitTextView * bSelf = self;
+                //逐字遍历，不管是中文英文，中文就按照字，英文就是按字母
+                [textView.text enumerateSubstringsInRange:NSMakeRange(0, [textView.text length])
+                                                  options:NSStringEnumerationByComposedCharacterSequences
+                                               usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                                                   NSInteger subLen = [substring charNumber];
+                                                   num += subLen;
+                                                   NSLog(@"%d", num);
+                                                   if (num <= self.limitNum * 2) {
+                                                       str  = [str stringByAppendingString:substring];
+                                                   }else{
+                                                       if ([bSelf.limitdelegate respondsToSelector:@selector(beyondLimitNum)]) {
+                                                           [bSelf.limitdelegate beyondLimitNum];
+                                                       }
+                                                       self.limitString = str;
+                                                       return;
                                                    }
-                                                   return;
-                                               }
-                                           }];
-            [textView setText:str];
+                                               }];
+
+            }
+            [textView setText:self.limitString];
         }
     }
     

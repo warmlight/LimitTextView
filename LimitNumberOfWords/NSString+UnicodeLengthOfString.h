@@ -9,6 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (UnicodeLengthOfString)
-+ (NSUInteger)unicodeLengthOfString:(NSString *)text;
 - (int)charNumber;
 @end
