@@ -86,12 +86,12 @@
     }
     
     //超过规定的字数时
-    if ([textView.text charNumber] > self.limteNum * 2) {
+    if ([textView.text charNumber] > self.limitNum * 2) {
         //判断是否是普通的字符或asc码，我就是拿来判断是不是纯英文
         BOOL asc = [textView.text canBeConvertedToEncoding:NSASCIIStringEncoding];
         if (asc){
             //是纯英文就好办，可以直接截取相应的字符数用来显示
-            NSString *str = [textView.text substringToIndex:self.limteNum * 2];
+            NSString *str = [textView.text substringToIndex:self.limitNum * 2];
             if ([self.limitdelegate respondsToSelector:@selector(beyondLimitNum)]) {
                 [self.limitdelegate beyondLimitNum];
             }
@@ -109,7 +109,7 @@
                                                NSInteger subLen = [substring charNumber];
                                                num += subLen;
                                                NSLog(@"%d", num);
-                                               if (num <= self.limteNum * 2) {
+                                               if (num <= self.limitNum * 2) {
                                                    str  = [str stringByAppendingString:substring];
                                                }else{
                                                    if ([bSelf.limitdelegate respondsToSelector:@selector(beyondLimitNum)]) {
