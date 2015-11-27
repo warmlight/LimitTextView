@@ -2,8 +2,7 @@
 ------------------------
 　　整片文章和代码都基本都是推翻重写，而且可能与网上主流的一些做法不同，我在后面说一下我这么做的一些考虑。当然我还是一个刚入门不久的女娃娃，肯定写的有不尽人意，如果有更好的方法可以跟我说一下。<br/>
 　　我稍微整合了一下项目里关于这个功能的其他要求，其实也是一些常见的要求，我把他们封装成了一个控件`LimitTextView`，而且这些附带的功能也是能够自己决定是否开启的。<br/>
-　　下载地址：[git](https://github.com/warmlight/LimitTextView) 里面有使用例子。<br/>
-　　**ps:本文是以中文两个字节，英文一个字节来处理字数限制的。**<br/>
+　　**ps:本文是以中文两个字节，英文一个字节来处理字数限制的。emoji的长度根据emoji不同字节也不同**<br/>
 
 　　可以看看封装好的`LimitTextView`里都有哪些可以进行操作的属性<br/>
 		 
@@ -24,7 +23,7 @@
 
 * textView可以设置限制输入的字数。<br/>
 * textView能选择是否够模仿显示出placeHolder（如果你给placeHold赋值即是显示），并且placeHolder会自适应行高。<br/>
-* 如果输入的内容**超出textView init的时候的frame**，会自动增高。（不是输入多少就自适应多少，而是一旦超过初始化时的高度，就会开始自适应高度！！！）
+* 如果输入的内容**超出textView init的时候的frame**，会自动增高。（不是从一开始输入多少就自适应多少，而是一旦超过初始化时的高度，就会开始自适应高度！！！）
 
 ###关键代码
 		
@@ -114,6 +113,36 @@
 
 ###关于效率
 　　肯定是在`shouldChangeTextInRange:`进行return来限制操作效率高。我这样做效率感觉还是比较低的？感觉循环这种事如果字数上来了，效率肯定会不高。但是我没找到一个比较简单点的符合我要求的方法。如果有大家可以告诉我一下，不胜感激呢！
+
+###关于使用
+
+	
+	#import "ViewController.h"
+	#import "LimitTextView.h"
+	@interface ViewController ()<LimitTextViewDelegate>
+
+	@end
+
+	@implementation ViewController
+
+	- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    LimitTextView *tx = [[LimitTextView alloc]initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 80)];
+    tx.backgroundColor = [UIColor lightGrayColor];
+    tx.limteNum = 5;
+    tx.autoHeight = YES;
+    tx.placeHoldFont = [UIFont systemFontOfSize:13];
+    tx.placeHold = @"我是placeholder,我的行高可以改变！！！！";
+    tx.limitdelegate = self;
+    [self.view addSubview:tx];
+	}
+
+	//如果超出了限制字数会走这个delegate，可以把提示的逻辑写到这个里面
+	- (void)beyondLimitNum {
+	    NSLog(@"超过了限制字数( ⊙ o ⊙ )啊！");
+	}
 
 
 推荐看，博主讲的很好，不过博主好像是中英文都当一个字符来处理，没有分开处理，但是文章很不错：<br/>
