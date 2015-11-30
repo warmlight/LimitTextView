@@ -156,6 +156,6 @@
 	}
 
 
-推荐看，博主讲的很好，不过博主好像是中英文都当一个字符来处理，没有分开处理，但是文章很不错：<br/>
-[详释(常见UITextView 输入之字数限制)之一－－－固定长度](http://blog.csdn.net/fengsh998/article/details/45421107)
+推荐看[详释(常见UITextView 输入之字数限制)之一－－－固定长度](http://blog.csdn.net/fengsh998/article/details/45421107)，博主讲的很好，不过博主好像是中英文都当一个字符来处理，没有分开处理，但是文章很不错：<br/>
+
 　
